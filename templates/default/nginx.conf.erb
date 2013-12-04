@@ -76,6 +76,13 @@ http {
   limit_req_zone $binary_remote_addr zone=<%= node['nginx']['rate_limiting_zone_name'] %>:<%= node['nginx']['rate_limiting_backoff'] %> rate=<%= node['nginx']['rate_limit'] %>;
 
   <% end -%>
+
+  # Virtual Hosts
+  # 
   include <%= node['nginx']['dir'] %>/conf.d/*.conf;
+  <% if node['nginx']['extra_site_dir'] -%>
+  include <%= node['nginx']['extra_site_dir'] %>/*;
+  <% end %>
   include <%= node['nginx']['dir'] %>/sites-enabled/*;
+
 }
