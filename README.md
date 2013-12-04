@@ -107,6 +107,7 @@ Generally used attributes. Some have platform specific values. See `attributes/d
   which yum repositories, if any, will be added before installing the nginx package. The
   default value of 'epel' will use the `yum::epel` recipe, 'nginx' will use the
   `nginx::repo` recipe, and setting no value will not add any additional repositories.
+- `node['nginx']['extra_site_dir']` - specifies the path of extra virtual host configuration files
 
 Rate Limiting
 
